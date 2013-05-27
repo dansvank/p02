@@ -50,6 +50,8 @@ Ext.define('MyApp.view.MyContainer', {
     },
 
     onMybuttonTap: function(button, e, eOpts) {
+        alert("1.2");
+
         Ext.device.Camera.capture({
             success: function(image){
                 alert("success!");
@@ -60,7 +62,7 @@ Ext.define('MyApp.view.MyContainer', {
             },
             quality: 75,
             source: 'camera',
-            destination: 'data',
+            destination: 'file',
             encoding: 'png'
 
         });
