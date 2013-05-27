@@ -1,0 +1,97 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyContainer",
+        "designer|initialView": true
+    },
+    "designerId": "bce7ef03-b530-4310-aa26-de9ad4fd0096",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "container|pack": null,
+                "docked": "top",
+                "title": "Camara App"
+            },
+            "designerId": "2ef0dbf0-071d-4ee4-a09f-945f0a1460c4",
+            "cn": [
+                {
+                    "type": "Ext.SegmentedButton",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right"
+                    },
+                    "designerId": "2707da5a-9035-453a-8f26-276cdfe84616",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "mybutton",
+                                "text": "Tomar"
+                            },
+                            "designerId": "d54b5921-f928-42dd-98cc-21bd779a72c3",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMybuttonTap",
+                                        "implHandler": [
+                                            "Ext.device.Camera.capture({",
+                                            "    success: function(image){",
+                                            "        imageView.setSrc(image);",
+                                            "    },",
+                                            "    quality: 75,",
+                                            "    source: 'camera',",
+                                            "    destination:'data',",
+                                            "    encoding: 'png'",
+                                            "});"
+                                        ],
+                                        "name": "tap"
+                                    },
+                                    "designerId": "f6ee7e13-8674-41a1-ab29-7bf49878f37f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Ver"
+                            },
+                            "designerId": "22dcaca2-6b4c-4a90-94e5-ed5636138c60"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
