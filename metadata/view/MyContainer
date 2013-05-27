@@ -24,74 +24,62 @@
                 "docked": "top",
                 "title": "Camara App"
             },
-            "designerId": "2ef0dbf0-071d-4ee4-a09f-945f0a1460c4",
+            "designerId": "2ef0dbf0-071d-4ee4-a09f-945f0a1460c4"
+        },
+        {
+            "type": "Ext.ActionSheet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "46b54c6f-f1a3-4017-984b-dbea2ae9ff85",
             "cn": [
                 {
-                    "type": "Ext.SegmentedButton",
+                    "type": "Ext.Button",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "align": "right"
+                        "docked": "right",
+                        "itemId": "mybutton",
+                        "ui": "action-round",
+                        "text": "Tomar foto"
                     },
-                    "designerId": "2707da5a-9035-453a-8f26-276cdfe84616",
+                    "designerId": "dc8f66b6-8cf1-426b-bd1d-60ff5ca2821c",
                     "cn": [
                         {
-                            "type": "Ext.Button",
+                            "type": "basiceventbinding",
                             "reference": {
-                                "name": "items",
+                                "name": "listeners",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "mybutton",
-                                "text": "Tomar"
+                                "fn": "onMybuttonTap",
+                                "implHandler": [
+                                    "Ext.device.Camera.capture({",
+                                    "    success: function(image){",
+                                    "        alert(\"success!\");",
+                                    "\t\timageView.setSrc(image);",
+                                    "    },",
+                                    "    failure: function(){",
+                                    "\t\talert(\"failure\");",
+                                    "    },",
+                                    "    quality: 75,",
+                                    "    source: 'camera',",
+                                    "\tdestination: 'data',",
+                                    "\tencoding: 'png'",
+                                    "",
+                                    "});",
+                                    "",
+                                    ""
+                                ],
+                                "name": "tap"
                             },
-                            "designerId": "d54b5921-f928-42dd-98cc-21bd779a72c3",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onMybuttonTap",
-                                        "implHandler": [
-                                            "alert(\"listo\");",
-                                            "",
-                                            "Ext.device.Camera.capture({",
-                                            "    success: function(image){",
-                                            "        imageView.setSrc(image);",
-                                            "    },",
-                                            "    quality: 75,",
-                                            "    source: 'camera',",
-                                            "    destination:'data',",
-                                            "    encoding: 'png'",
-                                            "});",
-                                            "",
-                                            "alert(\"fak!\");"
-                                        ],
-                                        "name": "tap"
-                                    },
-                                    "designerId": "f6ee7e13-8674-41a1-ab29-7bf49878f37f"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "text": "Ver"
-                            },
-                            "designerId": "22dcaca2-6b4c-4a90-94e5-ed5636138c60"
+                            "designerId": "bb164a58-eecf-410f-95ec-410402fdcbac"
                         }
                     ]
                 }
