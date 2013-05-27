@@ -1,6 +1,9 @@
 {
     "name": "proy02",
-    "settings": {},
+    "settings": {
+        "urlPrefix": "http://localhost:8000/",
+        "exportPath": ""
+    },
     "xdsVersion": "2.2.2",
     "xdsBuild": 991,
     "schemaVersion": 1,

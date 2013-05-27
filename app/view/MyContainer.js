@@ -25,34 +25,31 @@ Ext.define('MyApp.view.MyContainer', {
                 layout: {
                     align: 'center',
                     type: 'hbox'
-                }
-            },
-            {
-                xtype: 'actionsheet',
+                },
                 items: [
                     {
                         xtype: 'button',
-                        docked: 'right',
-                        itemId: 'mybutton',
-                        ui: 'action-round',
-                        text: 'Tomar foto'
+                        itemId: 'mybutton1',
+                        text: 'Take!'
                     }
                 ]
             }
         ],
         listeners: [
             {
-                fn: 'onMybuttonTap',
+                fn: 'onMybutton1Tap',
                 event: 'tap',
-                delegate: '#mybutton'
+                delegate: '#mybutton1'
             }
         ]
     },
 
-    onMybuttonTap: function(button, e, eOpts) {
+    onMybutton1Tap: function(button, e, eOpts) {
         alert("1.2");
 
-        Ext.device.Camera.capture({
+        camara = new Ext.device.Camera();
+
+        camara.capture({
             success: function(image){
                 alert("success!");
                 imageView.setSrc(image);
@@ -66,7 +63,6 @@ Ext.define('MyApp.view.MyContainer', {
             encoding: 'png'
 
         });
-
 
     }
 

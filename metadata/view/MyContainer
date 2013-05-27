@@ -24,16 +24,7 @@
                 "docked": "top",
                 "title": "Camara App"
             },
-            "designerId": "2ef0dbf0-071d-4ee4-a09f-945f0a1460c4"
-        },
-        {
-            "type": "Ext.ActionSheet",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "designerId": "46b54c6f-f1a3-4017-984b-dbea2ae9ff85",
+            "designerId": "2ef0dbf0-071d-4ee4-a09f-945f0a1460c4",
             "cn": [
                 {
                     "type": "Ext.Button",
@@ -43,12 +34,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "docked": "right",
-                        "itemId": "mybutton",
-                        "ui": "action-round",
-                        "text": "Tomar foto"
+                        "itemId": "mybutton1",
+                        "text": "Take!"
                     },
-                    "designerId": "dc8f66b6-8cf1-426b-bd1d-60ff5ca2821c",
+                    "designerId": "829f07f6-6a0e-46a0-966a-e05b1a48d4ca",
                     "cn": [
                         {
                             "type": "basiceventbinding",
@@ -58,11 +47,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onMybuttonTap",
+                                "fn": "onMybutton1Tap",
                                 "implHandler": [
                                     "alert(\"1.2\");",
                                     "",
-                                    "Ext.device.Camera.capture({",
+                                    "camara = new Ext.device.Camera();",
+                                    "",
+                                    "camara.capture({",
                                     "    success: function(image){",
                                     "        alert(\"success!\");",
                                     "        imageView.setSrc(image);",
@@ -76,12 +67,11 @@
                                     "    encoding: 'png'",
                                     "",
                                     "});",
-                                    "",
                                     ""
                                 ],
                                 "name": "tap"
                             },
-                            "designerId": "bb164a58-eecf-410f-95ec-410402fdcbac"
+                            "designerId": "e1c9204f-269c-4574-92ae-5dc94adaac1e"
                         }
                     ]
                 }
