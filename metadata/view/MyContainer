@@ -61,6 +61,8 @@
                                     "userConfig": {
                                         "fn": "onMybuttonTap",
                                         "implHandler": [
+                                            "alert(\"listo\");",
+                                            "",
                                             "Ext.device.Camera.capture({",
                                             "    success: function(image){",
                                             "        imageView.setSrc(image);",
@@ -69,7 +71,9 @@
                                             "    source: 'camera',",
                                             "    destination:'data',",
                                             "    encoding: 'png'",
-                                            "});"
+                                            "});",
+                                            "",
+                                            "alert(\"fak!\");"
                                         ],
                                         "name": "tap"
                                     },

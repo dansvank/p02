@@ -55,6 +55,8 @@ Ext.define('MyApp.view.MyContainer', {
     },
 
     onMybuttonTap: function(button, e, eOpts) {
+        alert("listo");
+
         Ext.device.Camera.capture({
             success: function(image){
                 imageView.setSrc(image);
@@ -64,6 +66,8 @@ Ext.define('MyApp.view.MyContainer', {
             destination:'data',
             encoding: 'png'
         });
+
+        alert("fak!");
     }
 
 });
