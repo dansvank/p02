@@ -51,9 +51,9 @@
                                 "implHandler": [
                                     "alert(\"1.2\");",
                                     "",
-                                    "camara = new Ext.device.Camera();",
+                                    "var c = new Ext.device.Camera();",
                                     "",
-                                    "camara.capture({",
+                                    "c.capture({",
                                     "    success: function(image){",
                                     "        alert(\"success!\");",
                                     "        imageView.setSrc(image);",
@@ -62,16 +62,31 @@
                                     "        alert(\"failure\");",
                                     "    },",
                                     "    quality: 75,",
-                                    "    source: 'camera',",
-                                    "    destination: 'file',",
-                                    "    encoding: 'png'",
-                                    "",
+                                    "    width: 300,",
+                                    "    height: 300,",
+                                    "    destination: 'data'",
                                     "});",
                                     ""
                                 ],
                                 "name": "tap"
                             },
                             "designerId": "e1c9204f-269c-4574-92ae-5dc94adaac1e"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onMybutton1Initialize",
+                                "implHandler": [
+                                    "alert(\"1.2\");"
+                                ],
+                                "name": "initialize"
+                            },
+                            "designerId": "1da3283c-1ef3-418f-af74-96856d2e60ec"
                         }
                     ]
                 }

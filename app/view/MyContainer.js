@@ -30,7 +30,15 @@ Ext.define('MyApp.view.MyContainer', {
                     {
                         xtype: 'button',
                         itemId: 'mybutton1',
-                        text: 'Take!'
+                        text: 'Take!',
+                        listeners: [
+                            {
+                                fn: function(component, eOpts) {
+                                    alert("1.2");
+                                },
+                                event: 'initialize'
+                            }
+                        ]
                     }
                 ]
             }
@@ -47,9 +55,9 @@ Ext.define('MyApp.view.MyContainer', {
     onMybutton1Tap: function(button, e, eOpts) {
         alert("1.2");
 
-        camara = new Ext.device.Camera();
+        var c = new Ext.device.Camera();
 
-        camara.capture({
+        c.capture({
             success: function(image){
                 alert("success!");
                 imageView.setSrc(image);
@@ -58,10 +66,9 @@ Ext.define('MyApp.view.MyContainer', {
                 alert("failure");
             },
             quality: 75,
-            source: 'camera',
-            destination: 'file',
-            encoding: 'png'
-
+            width: 300,
+            height: 300,
+            destination: 'data'
         });
 
     }
