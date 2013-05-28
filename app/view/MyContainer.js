@@ -34,7 +34,7 @@ Ext.define('MyApp.view.MyContainer', {
                         listeners: [
                             {
                                 fn: function(component, eOpts) {
-                                    alert("1.2, ahora con el api de phonegap");
+                                    alert("1.3, ahora con el api de phonegap");
                                 },
                                 event: 'initialize'
                             }
@@ -44,11 +44,9 @@ Ext.define('MyApp.view.MyContainer', {
             },
             {
                 xtype: 'image',
-                docked: 'top',
                 height: 201,
-                id: 'photoPreview',
-                ui: '',
-                src: '#'
+                id: 'imagePreview',
+                src: 'data/def.png'
             }
         ],
         listeners: [
@@ -61,20 +59,19 @@ Ext.define('MyApp.view.MyContainer', {
     },
 
     onMybutton1Tap: function(button, e, eOpts) {
-        alert("1.2");
+        alert('1.2');
 
-        navigator.camera.getPicture(success, failure,{quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL
-        });
+        navigator.camera.getPicture(success, failure,{quality: 50, 
+        destinationType: Camera.DestinationType.FILE_URI });
 
         function success(image){
-            alert("success!");
-            document.getElementById("photoPreview").src="data:image/jpeg;base64," + imageData;
-            alert("success 2!");
+            alert('success!');
+            document.getElementById('imagePreview').src=image;
+            alert('success 2!');
         }
 
         function failure(msg){
-            alert("Error. Tomela:\n" + msg);
+            alert('Error. Tomela:\n' + msg);
         }
     }
 

@@ -49,20 +49,19 @@
                             "userConfig": {
                                 "fn": "onMybutton1Tap",
                                 "implHandler": [
-                                    "alert(\"1.2\");",
+                                    "alert('1.2');",
                                     "",
-                                    "navigator.camera.getPicture(success, failure,{quality: 50,",
-                                    "    destinationType: Camera.DestinationType.DATA_URL",
-                                    " });",
+                                    "navigator.camera.getPicture(success, failure,{quality: 50, ",
+                                    "destinationType: Camera.DestinationType.FILE_URI });",
                                     "",
                                     "function success(image){",
-                                    "    alert(\"success!\");",
-                                    "\tdocument.getElementById(\"photoPreview\").src=\"data:image/jpeg;base64,\" + imageData;",
-                                    "    alert(\"success 2!\");",
+                                    "    alert('success!');",
+                                    "    document.getElementById('imagePreview').src=image;",
+                                    "    alert('success 2!');",
                                     "}",
                                     "",
                                     "function failure(msg){",
-                                    "    alert(\"Error. Tomela:\\n\" + msg);",
+                                    "    alert('Error. Tomela:\\n' + msg);",
                                     "}"
                                 ],
                                 "name": "tap"
@@ -79,7 +78,7 @@
                             "userConfig": {
                                 "fn": "onMybutton1Initialize",
                                 "implHandler": [
-                                    "alert(\"1.2, ahora con el api de phonegap\");"
+                                    "alert(\"1.3, ahora con el api de phonegap\");"
                                 ],
                                 "name": "initialize"
                             },
@@ -97,13 +96,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "docked": "top",
                 "height": 201,
-                "id": "photoPreview",
-                "ui": "",
-                "src": "#"
+                "id": "imagePreview",
+                "src": "data/def.png"
             },
-            "designerId": "999bc679-1e96-4d31-9266-da176ad833c1"
+            "designerId": "72499d78-a5aa-4dc5-9aca-a036d0e7b1dd"
         }
     ]
 }
