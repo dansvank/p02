@@ -34,13 +34,21 @@ Ext.define('MyApp.view.MyContainer', {
                         listeners: [
                             {
                                 fn: function(component, eOpts) {
-                                    alert("1.2");
+                                    alert("1.2, ahora con el api de phonegap");
                                 },
                                 event: 'initialize'
                             }
                         ]
                     }
                 ]
+            },
+            {
+                xtype: 'image',
+                docked: 'top',
+                height: 201,
+                id: 'photoPreview',
+                ui: '',
+                src: '#'
             }
         ],
         listeners: [
@@ -55,22 +63,19 @@ Ext.define('MyApp.view.MyContainer', {
     onMybutton1Tap: function(button, e, eOpts) {
         alert("1.2");
 
-        var c = new Ext.device.Camera();
-
-        c.capture({
-            success: function(image){
-                alert("success!");
-                imageView.setSrc(image);
-            },
-            failure: function(){
-                alert("failure");
-            },
-            quality: 75,
-            width: 300,
-            height: 300,
-            destination: 'data'
+        navigator.camera.getPicture(success, failure,{quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL
         });
 
+        function success(image){
+            alert("success!");
+            document.getElementById("photoPreview").src="data:image/jpeg;base64," + imageData;
+            alert("success 2!");
+        }
+
+        function failure(msg){
+            alert("Error. Tomela:\n" + msg);
+        }
     }
 
 });
