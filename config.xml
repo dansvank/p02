@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "yng.dansvank.proy"
+        versionCode="6" 
+        version   = "0.1.0">
+
+    <name>Camera App</name>
+
+    <description>
+	Simple App to use camera
+    </description>
+
+    <author href="https://localhost:666/" email="no@email.com">
+	chito chitín
+    </author>
+
+    <preference name="splash-screen-duration" value="1000" />
+
+    <gap:plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+
+
+</widget>
