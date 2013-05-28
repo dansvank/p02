@@ -52,7 +52,7 @@
                                     "alert('1.2');",
                                     "",
                                     "navigator.camera.getPicture(success, failure,{quality: 50, ",
-                                    "destinationType: Camera.DestinationType.FILE_URI });",
+                                    "destinationType: destinationType.FILE_URI });",
                                     "",
                                     "function success(image){",
                                     "    alert('success!');",
@@ -67,22 +67,6 @@
                                 "name": "tap"
                             },
                             "designerId": "e1c9204f-269c-4574-92ae-5dc94adaac1e"
-                        },
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onMybutton1Initialize",
-                                "implHandler": [
-                                    "alert(\"1.3, ahora con el api de phonegap\");"
-                                ],
-                                "name": "initialize"
-                            },
-                            "designerId": "1da3283c-1ef3-418f-af74-96856d2e60ec"
                         }
                     ]
                 }
@@ -101,6 +85,30 @@
                 "src": "data/def.png"
             },
             "designerId": "72499d78-a5aa-4dc5-9aca-a036d0e7b1dd"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    "alert(\"1.3, ahora con el api de phonegap\");",
+                    "document.addEventListener(\"deviceready\",onDeviceReady,false);",
+                    "",
+                    "    // Cordova is ready to be used!",
+                    "    function onDeviceReady() {",
+                    "        pictureSource=navigator.camera.PictureSourceType;",
+                    "        destinationType=navigator.camera.DestinationType;",
+                    "        alert(\"phonegap esta listo\");",
+                    "    }"
+                ],
+                "name": "initialize"
+            },
+            "designerId": "53458f89-cc85-4077-9bd7-aa45d67aa230"
         }
     ]
 }

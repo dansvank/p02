@@ -30,15 +30,7 @@ Ext.define('MyApp.view.MyContainer', {
                     {
                         xtype: 'button',
                         itemId: 'mybutton1',
-                        text: 'Take!',
-                        listeners: [
-                            {
-                                fn: function(component, eOpts) {
-                                    alert("1.3, ahora con el api de phonegap");
-                                },
-                                event: 'initialize'
-                            }
-                        ]
+                        text: 'Take!'
                     }
                 ]
             },
@@ -54,6 +46,10 @@ Ext.define('MyApp.view.MyContainer', {
                 fn: 'onMybutton1Tap',
                 event: 'tap',
                 delegate: '#mybutton1'
+            },
+            {
+                fn: 'onContainerInitialize',
+                event: 'initialize'
             }
         ]
     },
@@ -62,7 +58,7 @@ Ext.define('MyApp.view.MyContainer', {
         alert('1.2');
 
         navigator.camera.getPicture(success, failure,{quality: 50, 
-        destinationType: Camera.DestinationType.FILE_URI });
+        destinationType: destinationType.FILE_URI });
 
         function success(image){
             alert('success!');
@@ -72,6 +68,18 @@ Ext.define('MyApp.view.MyContainer', {
 
         function failure(msg){
             alert('Error. Tomela:\n' + msg);
+        }
+    },
+
+    onContainerInitialize: function(component, eOpts) {
+        alert("1.3, ahora con el api de phonegap");
+        document.addEventListener("deviceready",onDeviceReady,false);
+
+        // Cordova is ready to be used!
+        function onDeviceReady() {
+            pictureSource=navigator.camera.PictureSourceType;
+            destinationType=navigator.camera.DestinationType;
+            alert("phonegap esta listo");
         }
     }
 
